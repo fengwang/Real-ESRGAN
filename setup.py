@@ -66,12 +66,6 @@ version_info = ({})
         f.write(version_file_str)
 
 
-def get_version():
-    with open(version_file, 'r') as f:
-        exec(compile(f.read(), version_file, 'exec'))
-    return locals()['__version__']
-
-
 def get_requirements(filename='requirements.txt'):
     here = os.path.dirname(os.path.realpath(__file__))
     with open(os.path.join(here, filename), 'r') as f:
@@ -83,7 +77,7 @@ if __name__ == '__main__':
     write_version_py()
     setup(
         name='realesrgan',
-        version=get_version(),
+        version='0.3.0',
         description='Real-ESRGAN aims at developing Practical Algorithms for General Image Restoration',
         long_description=readme(),
         long_description_content_type='text/markdown',
